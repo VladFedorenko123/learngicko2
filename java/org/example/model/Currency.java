@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,10 +19,9 @@ public class Currency {
     public static final String TABLE_NAME = "crypto_currency";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = ID)
-    public Integer id;
-    public static final String ID = "id";
+    public String uuid;
+    public static final String ID = "uuid";
 
     @Column(name = CRYPTO_CURRENCY)
     public String cryptoCurrency;
@@ -31,7 +31,8 @@ public class Currency {
     public String price;
     public static final String PRICE = "price";
 
-    @Column(name = QUANTITY_CRYPTO_CURRENCY)
-    public Double quantityCryptoCurrency;
-    public static final String QUANTITY_CRYPTO_CURRENCY = "quantity_crypto_currency";
+//    @Column(name = QUANTITY_CRYPTO_CURRENCY)
+//    public Double quantityCryptoCurrency;
+//    public static final String QUANTITY_CRYPTO_CURRENCY = "quantity_crypto_currency";
+//
 }

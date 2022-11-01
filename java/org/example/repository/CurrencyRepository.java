@@ -11,11 +11,17 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Repository
-public interface CurrencyRepository extends JpaRepository<Currency, Integer> {
+public interface CurrencyRepository extends JpaRepository<Currency, String> {
     Optional<Currency> findByCryptoCurrency(String cryptoCurrency);
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE crypto_currency set price = :newPrice WHERE crypto_currency = :currency", nativeQuery = true)
-    void updateDataOfCryptoCurrency(@Param("newPrice") String price, @Param("currency") String cryptoCurrency);
+    @Query(value = "INSERT INTO crypto_currency VALUES (:uuid, :cryptoCurrency, :price) ON CONFLICT (crypto_currency) DO UPDATE SET price = :price", nativeQuery = true)
+    void insertOrUpdate(@Param("uuid") String uuid, @Param("cryptoCurrency") String cryptoCurrency, @Param("price") String price);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE crypto_currency set price = :quantity WHERE crypto_currency = :currency", nativeQuery = true)
+    void updateQuantity(@Param("quantity") String price, @Param("currency") String cryptoCurrency);
+
 }
