@@ -1,11 +1,15 @@
 package src.srccode.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
+@Builder
 public class CryptoCurrencyDto {
-    private String cryptoCurrency;
-    private Double quantityCryptoCurrency;
+    private List<String> cryptoCurrencyList;
+    private String currency;
 }

@@ -1,13 +1,14 @@
 package src.srccode.model;
 
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -18,14 +19,19 @@ public class CryptoCurrency {
 
     @Id
     @Column(name = ID)
-    public String uuid;
-    public static final String ID = "uuid";
+    public String id;
+    private static final String ID = "uuid";
 
     @Column(name = CRYPTO_CURRENCY)
     public String cryptoCurrency;
-    public static final String CRYPTO_CURRENCY = "crypto_currency_iso";
+    private static final String CRYPTO_CURRENCY = "crypto_currency_iso";
 
     @Column(name = PRICE)
     public String price;
-    public static final String PRICE = "price";
+    private static final String PRICE = "price";
+
+    @Column(name = CURRENCY)
+    public String currency;
+    private static final String CURRENCY = "currency";
+
 }

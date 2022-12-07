@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationCoinGeckoMicroservice {
+public class CryptoCurrencyMicroservice {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationCoinGeckoMicroservice.class, args);
+        SpringApplication.run(CryptoCurrencyMicroservice.class, args);
     }
 }
